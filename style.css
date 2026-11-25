@@ -1,15 +1,196 @@
-body {
-    background-color: black;
+/* Importação de fontes do Google Fonts para o visual militar */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@600;700&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.cabeçalho{
-margin-bottom: 0px;
-display: flex;
-justify-content: space-around;
-align-items: center;
-border: 2px solid green;
-background-image: url(wp9212011.jpg);
-background-size: cover;
-background-position: 50% 75%;
 
+body {
+    background-color: #0d0d0b; /* Fundo escuro quase preto */
+    color: #a8a89e;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
 
+/* ================= CABEÇALHO ================= */
+.cabeçalho {
+    background-color: #213014; /* Verde-oliva militar */
+    padding: 45px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid #2f421e;
+}
+
+.cabecalho-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
+}
+
+.cabecalho-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #6b8e4e;
+    margin-top: 8px;
+}
+
+/* ================= LISTA DE FILMES ================= */
+main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.filmes {
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* Espaçamento entre os cartões */
+}
+
+/* Estilização unificada dos cartões */
+.filme-1,
+.filme-2,
+.filme-3 {
+    background-color: #161613;
+    border: 1px solid #2b2b24;
+    display: grid;
+    grid-template-columns: 210px 1fr; /* Coluna da capa + Coluna do texto */
+    grid-template-rows: auto 1fr;
+    column-gap: 35px;
+    align-items: start;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.filme-1:hover,
+.filme-2:hover,
+.filme-3:hover {
+    border-color: #556b2f;
+    transform: translateY(-2px);
+}
+
+/* Posicionamento da imagem à esquerda ocupando as duas linhas */
+.img-filme1,
+.img-filme2,
+.img-filme3 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 210px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Títulos dos filmes à direita */
+.filme-1 h2,
+.filme-2 h3,
+.filme-3 h4 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e8e0c5; /* Tom bege/creme do protótipo */
+    letter-spacing: 1px;
+    padding-top: 45px;
+    padding-right: 30px;
+    margin-bottom: 12px;
+}
+
+/* Sinopses logo abaixo dos títulos */
+.sinopse1,
+.sinopse2,
+.sinopse3 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    font-size: 0.98rem;
+    color: #9e9e93;
+    padding-right: 35px;
+    padding-bottom: 30px;
+}
+
+/* ================= RODAPÉ ================= */
+.rodapé {
+    background-color: #213014; /* Mesma cor verde-oliva do topo */
+    color: #d4dec9;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 70px;
+    border-top: 2px solid #2f421e;
+}
+
+.rodapé p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.rodapé a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.rodapé a:hover {
+    transform: scale(1.1);
+}
+
+.netflix,
+.disneyplus,
+.youtube {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* ================= RESPONSIVIDADE (CELULAR) ================= */
+@media (max-width: 680px) {
+    .cabecalho-titulo {
+        font-size: 2.2rem;
+    }
+
+    .filme-1,
+    .filme-2,
+    .filme-3 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .img-filme1,
+    .img-filme2,
+    .img-filme3 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        width: 100%;
+        height: 360px;
+    }
+
+    .filme-1 h2,
+    .filme-2 h3,
+    .filme-3 h4 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding: 20px 20px 0 20px;
+    }
+
+    .sinopse1,
+    .sinopse2,
+    .sinopse3 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        padding: 0 20px 25px 20px;
+    }
 }
